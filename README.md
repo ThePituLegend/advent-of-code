@@ -1,7 +1,8 @@
-# Advent of Code 2021
+# Advent of Code
 
-![](https://img.shields.io/badge/day%20📅-25-blue)
 ![](https://img.shields.io/badge/stars%20⭐-29-yellow)
 ![](https://img.shields.io/badge/days%20completed-13-red)
 
-Trying to solve https://adventofcode.com/2021
+Trying to solve https://adventofcode.com
+
+Check the individual branches for each year :smile:
