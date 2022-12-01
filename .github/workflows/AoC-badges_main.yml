@@ -1,4 +1,4 @@
-name: Update AoC Badges
+name: Update AoC Badges (Main)
 on:
   schedule:                                      # run workflow based on schedule
     - cron: '6 5 1-25 12 *'                      # from the 1. December till 25. December every day at 5:06am (avoid load at full hours)
