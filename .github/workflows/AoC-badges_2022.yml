@@ -1,4 +1,4 @@
-name: Update AoC Badges (Main)
+name: Update AoC Badges 2022
 on:
   schedule:                                      # run workflow based on schedule
     - cron: '6 5 1-25 12 *'                      # from the 1. December till 25. December every day at 5:06am (avoid load at full hours)
@@ -21,7 +21,7 @@ jobs:
           
 #         Optional inputs:
 #         
-#         year: 2021                                                                                     # The year for which stats should be retrieved
+          year: 2022                                                                                     # The year for which stats should be retrieved
 #         leaderboard: 'https://adventofcode.com/2020/leaderboard/private/view/00000.json'               # The url of the leaderboard from witch the data is fetched. Typically your private leaderboard.
 #         file: 'README.md'                                                                              # The file that contains the badges
 #         dayRegex: '(?<=https:\/\/img\.shields\.io\/badge\/day%20📅-)[0-9]+(?=-blue)'                   # Regular expression that finds the content of the day badge iun your file.
@@ -32,4 +32,4 @@ jobs:
         with:
           commit_message: Update badges
           file_pattern: README.md
-          branch: main
+          branch: 2022
