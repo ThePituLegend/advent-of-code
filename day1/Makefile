@@ -7,6 +7,7 @@ TOPLEVEL_LANG ?= verilog
 
 VERILOG_SOURCES += $(PWD)/commons.sv
 VERILOG_SOURCES += $(PWD)/puzzle1.sv
+VERILOG_SOURCES += $(PWD)/puzzle2.sv
 
 MODULE = puzzle_tb
 

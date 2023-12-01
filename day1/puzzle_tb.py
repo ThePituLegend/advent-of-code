@@ -1,11 +1,12 @@
+import random
 import cocotb
 from cocotb.triggers import RisingEdge, FallingEdge, ClockCycles, Timer
 from cocotb.clock import Clock
 
 @cocotb.test()
-async def test_puzzle1(dut):
+async def test_puzzle(dut):
 
-    input_file = open("input.txt", "r")
+    input_file = open("example.txt", "r")
 
     dut.clk_i.value = 0;
     dut.rstn_i.value = 1;
