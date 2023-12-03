@@ -32,6 +32,33 @@ always_ff @(posedge clk_i or negedge rstn_i) begin
 end
 endmodule
 
+// Function to check if a window contains a valid spelling
+function logic [3:0] check_spelling (logic [4:0][7:0] window);
+    if (window[3:0] == "zero") begin
+        return 0;
+    end else if (window[2:0] == "one") begin
+        return 1;
+    end else if (window[2:0] == "two") begin
+        return 2;
+    end else if (window[4:0] == "three") begin
+        return 3;
+    end else if (window[3:0] == "four") begin
+        return 4;
+    end else if (window[3:0] == "five") begin
+        return 5;
+    end else if (window[2:0] == "six") begin
+        return 6;
+    end else if (window[4:0] == "seven") begin
+        return 7;
+    end else if (window[4:0] == "eight") begin
+        return 8;
+    end else if (window[3:0] == "nine") begin
+        return 9;
+    end else begin
+        return 10; // Invalid spelling
+    end
+endfunction
+
 module puzzle2
     import commons::*;
 (
@@ -45,22 +72,16 @@ module puzzle2
 logic [6:0] tens;
 logic [3:0] units;
 logic [31:0] sum;
+logic [3:0] spell2num;
 state_t state, next_state;
 logic newline;
 
 logic [4:0][7:0] window;
-logic [9:0][39:0] spellings = {
-    {8'b0,"zero"},  {16'b0,"one"},
-    {16'b0,"two"},  {"three"},
-    {8'b0,"four"},  {8'b0,"five"},
-    {16'b0,"six"},  {"seven"},
-    {"eight"},      {8'b0,"nine"}
-};
 
 // Shift register
 shift_reg shift_reg_inst (
     .clk_i(clk_i),
-    .rstn_i(rstn_i),
+    .rstn_i(rstn_i && !newline),
     .enable_i(run_i && !newline),
     .data_i(char_i),
     .data_o(window)
@@ -87,6 +108,7 @@ begin
         begin
             tens = '0;
             units = '0;
+            spell2num = '0;
             newline = 0;
             if (run_i) begin
                 next_state = FIRST;
@@ -95,8 +117,12 @@ begin
         FIRST:
         begin
             newline = 0;
-            if (char_i >= "0" && char_i <= "9") begin
-                tens = 7'(char_i - "0") * 7'd10; // char_i -> 10's digit
+            spell2num = check_spelling(window); // check spelling
+            if (spell2num < 10) begin
+                tens = spell2num * 7'd10;
+                next_state = SECOND;
+            end else if (char_i >= "0" && char_i <= "9") begin // check digit
+                tens = 4'(char_i - "0") * 7'd10; // char_i -> 10's digit
                 next_state = SECOND;
             end
         end
@@ -110,6 +136,11 @@ begin
                 next_state = FIRST;
             end else if (char_i >= "0" && char_i <= "9") begin
                 units = 4'(char_i - "0"); // char_i -> 1's digit
+            end else begin
+                spell2num = check_spelling(window); // check spelling
+                if (spell2num < 10) begin
+                    units = spell2num;
+                end
             end
         end
         default:

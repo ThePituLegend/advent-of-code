@@ -6,7 +6,7 @@ from cocotb.clock import Clock
 @cocotb.test()
 async def test_puzzle(dut):
 
-    input_file = open("example.txt", "r")
+    input_file = open("input.txt", "r")
 
     dut.clk_i.value = 0;
     dut.rstn_i.value = 1;
@@ -34,6 +34,6 @@ async def test_puzzle(dut):
 
     await Timer(5, units="ns") # Wait a bit, just for the looks of the waveform
 
-    print(f"Puzzle 1: {int(dut.sum_o.value)}")
+    print(f"Puzzle Result: {int(dut.sum_o.value)}")
 
     input_file.close()
