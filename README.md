@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
-![](https://img.shields.io/badge/stars%20⭐-3-yellow)
-![](https://img.shields.io/badge/days%20completed-2-red)
+![](https://img.shields.io/badge/stars%20⭐-4-yellow)
+![](https://img.shields.io/badge/days%20completed-3-red)
 
 Trying to solve https://adventofcode.com/2023.
 
