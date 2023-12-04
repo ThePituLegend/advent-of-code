@@ -6,7 +6,7 @@ EXTRA_ARGS += --trace-fst --trace-structs
 TOPLEVEL_LANG ?= verilog
 
 VERILOG_SOURCES += $(PWD)/puzzle1.sv
-#VERILOG_SOURCES += $(PWD)/puzzle2.sv
+VERILOG_SOURCES += $(PWD)/puzzle2.sv
 
 MODULE = puzzle_tb
 
