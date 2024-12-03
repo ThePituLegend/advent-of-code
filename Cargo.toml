@@ -2,8 +2,7 @@
 resolver = "3"
 
 members = [
-    "day1",
-    "day2",
+    "day1", "day2", "day3",
 ]
 
 [profile.release]

@@ -1,0 +1,10 @@
+[package]
+name = "aoc-day3"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+regex = "1.11.1"
+
+[lints]
+workspace = true
