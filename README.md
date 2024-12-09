@@ -1,7 +1,7 @@
 # Advent of Code 2024
 
-![](https://img.shields.io/badge/stars%20⭐-12-yellow)
-![](https://img.shields.io/badge/days%20completed-6-red)
+![](https://img.shields.io/badge/stars%20⭐-14-yellow)
+![](https://img.shields.io/badge/days%20completed-7-red)
 
 Trying to solve <https://adventofcode.com/2024>.
 
